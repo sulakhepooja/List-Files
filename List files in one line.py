@@ -15,3 +15,4 @@ for file in os.listdir("/etc"):
         permissionOctal = oct(os.lstat("/etc").st_mode)[-3:]
         for role, octal in enumerate(permissionOctal):
             print(permissionDict['access'][octal],end = " ",flush = True)
+
