@@ -11,3 +11,4 @@ for i in args[0]:
         for f in contents:
             print(os.path.join(i, f))
     else:
+        print(i)
