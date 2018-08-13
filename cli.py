@@ -1,6 +1,8 @@
 import sys,os
 with open('/proc/cpuinfo') as f:
     for line in f:
+        arg = sys.argv[0]
+        i = 1
         if line.strip():
 
             if line.rstrip('\n').startswith('model name'):
