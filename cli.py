@@ -1,19 +1,31 @@
 import sys,os
-for file in os.listdir("/proc"):
-    input = open(os.path.join("/proc", file), "r")
-    content = input.read()
-    arg = sys.argv[0]
-    i=1
-    while i<len(arg):
-        print(arg[i], arg[i+1], content)
-        i+=2
-        if(sys.argv[0]== '-c'):
-            print(os.path.exists('/proc/cpuinfo'))
-        if (sys.argv[0] == '-m'):
-            print(os.path.exists('/proc/cpuinfo'))
-        if (sys.argv[0] == '-f'):
-            print(os.path.exists('/proc/cpuinfo'))
-        if (sys.argv[0] == '-h'):
-            print(os.path.exists('/proc/cpuinfo'))
-        if (sys.argv[0] == '--help'):
-            print("This is Help Message")
+with open('/proc/cpuinfo') as f:
+    for line in f:
+        # Ignore the blank line separating the information between
+        # details about two processing units
+        if line.strip():
+
+            if line.rstrip('\n').startswith('model name'):
+                model_name = line.rstrip('\n').split(':')[1]
+                print(model_name)
+        if line.strip():
+
+            if line.rstrip('\n').startswith('cpu cores'):
+                cpu_cores = line.rstrip('\n').split(':')[1]
+                print(cpu_cores)
+        if line.strip():
+
+            if line.rstrip('\n').startswith('vendor_id'):
+                vendor_id = line.rstrip('\n').split(':')[1]
+                print(vendor_id)
+        if line.strip():
+
+            if line.rstrip('\n').startswith('cpu family'):
+                cpu_family = line.rstrip('\n').split(':')[1]
+                print(cpu_family)
+        if line.strip():
+
+            if line.rstrip('\n').startswith('cpu MHz'):
+                cpu_MHz = line.rstrip('\n').split(':')[1]
+                print(cpu_MHz)
+
