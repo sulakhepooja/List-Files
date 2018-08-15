@@ -3,29 +3,29 @@ with open('/proc/cpuinfo') as f:
     for line in f:
         arg = sys.argv[0]
         i = 1
-        if line.strip():
+        for i in arg[0]:
+            if line.strip():
 
-            if line.rstrip('\n').startswith('model name'):
+              if line.rstrip('\n').startswith('model name'):
                 model_name = line.rstrip('\n').split(':')[1]
                 print(model_name)
-        if line.strip():
+            if line.strip():
 
-            if line.rstrip('\n').startswith('cpu cores'):
+              if line.rstrip('\n').startswith('cpu cores'):
                 cpu_cores = line.rstrip('\n').split(':')[1]
                 print(cpu_cores)
-        if line.strip():
+            if line.strip():
 
-            if line.rstrip('\n').startswith('vendor_id'):
+              if line.rstrip('\n').startswith('vendor_id'):
                 vendor_id = line.rstrip('\n').split(':')[1]
                 print(vendor_id)
-        if line.strip():
+            if line.strip():
 
-            if line.rstrip('\n').startswith('cpu family'):
+              if line.rstrip('\n').startswith('cpu family'):
                 cpu_family = line.rstrip('\n').split(':')[1]
                 print(cpu_family)
-        if line.strip():
+            if line.strip():
 
-            if line.rstrip('\n').startswith('cpu MHz'):
+              if line.rstrip('\n').startswith('cpu MHz'):
                 cpu_MHz = line.rstrip('\n').split(':')[1]
                 print(cpu_MHz)
-
